@@ -7,17 +7,12 @@ import org.hibernate.query.NativeQuery;
 import java.util.List;
 
 public class UserDaoHibernateImpl extends Util implements UserDao {
-    public UserDaoHibernateImpl() {
-
-    }
-
-
     @Override
     public void createUsersTable() {
         String query = "CREATE TABLE IF NOT EXISTS RIXIOTABLE (" +
                 "id BIGINT AUTO_INCREMENT PRIMARY KEY, " +
                 "name VARCHAR(20), " +
-                "lastName VARCHAR(20), " +
+                "last_name VARCHAR(20), " +
                 "age TINYINT)";
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -74,7 +69,7 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        String query = "SELECT id, name, lastName, age FROM RIXIOTABLE";
+        String query = "SELECT id, name, last_name, age FROM RIXIOTABLE";
         List<User> users = null;
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();

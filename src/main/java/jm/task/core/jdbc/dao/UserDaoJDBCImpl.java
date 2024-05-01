@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
-    public UserDaoJDBCImpl() {
-
-    }
 
     public void createUsersTable() {
         String query = "CREATE TABLE IF NOT EXISTS RIXIOTABLE (" +
